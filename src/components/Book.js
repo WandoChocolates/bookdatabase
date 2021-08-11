@@ -15,6 +15,8 @@ export default function Book() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [books, setBooks] = useState({ items: [] });
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -23,10 +25,20 @@ export default function Book() {
   const API_URL = `https://www.googleapis.com/books/v1/volumes`;
 
   const fetchBooks = async () => {
-    // Ajax call to API using Axios
-    const result = await axios.get(`${API_URL}?q=${searchTerm}`);
-    // Books result
-    setBooks(result.data);
+    // set loading Before API operation starts
+    setLoading(true);
+    setError(false);
+    try {
+      // Ajax call to API using Axios
+      const result = await axios.get(`${API_URL}?q=${searchTerm}`);
+      // Books result
+      setBooks(result.data);
+    }
+    catch(error) {
+      setError(true);
+    }
+    // After API operation end
+    setLoading(false);
   }
 
   // Submit handler
@@ -71,10 +83,17 @@ export default function Book() {
               placeholder="microservice, restful design, etc.,"
               value={searchTerm}
               onChange={onInputChange}
+              required
             />
             <button type="submit">Search</button>
           </label>
+          {
+            error && <div style={{color: `red`}}>some error occurred, while fetching api</div>
+          }
         </form>
+        {
+          loading && <div style={{color: `green`}}>fetching books for "<strong>{searchTerm}</strong>"</div>
+        }
         <ul>
         {
           books.items.map((book, index) => {
