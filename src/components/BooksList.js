@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
   const bookAuthors = authors => {
@@ -27,6 +28,8 @@ const Book = ({ book }) => {
           <p>{bookAuthors(book.volumeInfo.authors)}</p>
           <p>{book.volumeInfo.publishedDate}</p>
         </div>
+
+        <Link to={`/book/${book.id}`}>Show details</Link>
       </div>
       <hr />
     </li>
@@ -37,7 +40,11 @@ const BooksList = ({ books }) => {
   return (
     <ul>
       {books.items.map((book, index) => {
-        return <Book book={book} key={index} />;
+        return (
+          <>
+            <Book book={book} key={index} />
+          </>
+        );
       })}
     </ul>
   );
