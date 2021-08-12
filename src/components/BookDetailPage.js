@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import BookDetail from './bookDetail';
+import BookDetail from './BookDetail';
 
 const BookDetailPage = ({ match }) => {
   const {
