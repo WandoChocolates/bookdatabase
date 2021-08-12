@@ -5,7 +5,7 @@ import BookSearchForm from './BookSearchForm';
 import Loader from './Loader';
 import BooksList from './BooksList';
 
-export default function Book() {
+export default function SearchPage() {
   const [state, setState] = useState({
     error: null,
     isLoaded: false,

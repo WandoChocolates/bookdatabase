@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
-import Book from './components/Book';
+import Main from './components/Main';
 
 export default function App() {
   return (
     <div>
-      <Book />
+      <Main />
     </div>
   );
 }
