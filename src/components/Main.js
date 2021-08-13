@@ -6,14 +6,22 @@ import BookDetailPage from './BookDetailPage.js';
 
 const NoMatchRoute = () => <div>404 Page</div>;
 const Main = () => {
-  const handleBooksOwned = () => {}
-  const handleBooksToBuy = () => {}
+  const onSubmitHandler = () => {}
 
   return (
     <>
-      <h1>Add Book</h1>
-      <button onClick={handleBooksOwned}>Enter the books you own</button>
-      <button onClick={handleBooksToBuy}>Enter the books you’d like to buy</button>
+      <h1>ADD BOOK</h1>
+      <form onSubmit={onSubmitHandler}>
+        <label>Title:</label><input type="text" /><br/>
+        <label>Authors:</label><input type="text" /><br/>
+        <label>Language:</label><input type="text" /><br/>
+        <input type="checkbox" />
+        <label>Enter the books you own</label><br/>
+        <input type="checkbox" />
+        <label>Enter the books you’d like to buy</label><br/>
+        <input type="submit" value="Submit" />
+        <button>Clear</button>
+    </form>
       <Router>
         <Switch>
           <Route path="/" exact component={SearchPage} />
