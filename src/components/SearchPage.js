@@ -53,16 +53,13 @@ export default function SearchPage() {
     fetchBooks();
   }
 
-  const handleBooksOwned = () => {}
-  const handleBooksToBuy = () => {}
+  
 
   console.log(books);
 
   return (
     <div>
-      <h1>Add Book</h1>
-      <button onClick={handleBooksOwned}>Enter the books you own</button>
-      <button onClick={handleBooksToBuy}>Enter the books you’d like to buy</button>
+      
 
       <section>
         <BookSearchForm

@@ -6,8 +6,14 @@ import BookDetailPage from './BookDetailPage.js';
 
 const NoMatchRoute = () => <div>404 Page</div>;
 const Main = () => {
+  const handleBooksOwned = () => {}
+  const handleBooksToBuy = () => {}
+
   return (
     <>
+      <h1>Add Book</h1>
+      <button onClick={handleBooksOwned}>Enter the books you own</button>
+      <button onClick={handleBooksToBuy}>Enter the books you’d like to buy</button>
       <Router>
         <Switch>
           <Route path="/" exact component={SearchPage} />
